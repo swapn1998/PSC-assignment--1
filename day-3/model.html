@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+   //OBJECT METHOD:
+
+const p1={
+     wheels:4,
+     engine:1,
+     stearing:1,
+     sidemirror:2,
+}
+
+const p2=Object.create(p1)
+p2.name="Tata Tiago"
+console.log(p2)
+
+const p3=Object.create(p1)
+p3.name="Tata Nano"
+console.log(p3)
+
+const p4=Object.create(p1)
+p4.name="Tata Nexon"
+console.log(p4)
+
+//CONSTRUCTOR FUNCTION
+
+function product(type)
+{
+     this.model=type;
+     this.wheels-4;
+     this.engine=1;
+     this.stearing=1;
+     this.sidemirror=2;
+
+}
+
+let m1= new product("Nano")
+let m2= new product("Tiago")
+console.log(m1)
+console.log(m2)
+product.prototype.changetype=function(type)
+{
+    this.model=type;
+}
+
+m1.changetype("Ferrari")
+console.log(m1)
+
+</script>

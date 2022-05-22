@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+    var amar={
+        talent:["singer"],
+        city:"pune",
+        work:function(){
+            return this.talent;
+        }
+      
+    }
+
+    var akbar={
+        talent:["chef"],
+        city:"beed",
+        work:function(){
+            return this.talent
+        }
+    }
+
+    var anthony={
+        talent:["Magician"],
+        city:"kashmir",
+        work:function(){
+            return this.talent
+        }
+    }
+
+// amar.work1.call(akbar)
+
+
+
+//AMAR:
+    var q1=amar.work.call(akbar)
+    var q2=amar.work.call(anthony)
+    // console.log("amar new talent"+": "+q1)
+    // console.log("amar new talent"+": "+q2)
+
+//AKBAR:
+    var p1=akbar.work.call(amar)
+    var p2=akbar.work.call(anthony)
+    // console.log("akbar new talent"+": "+p1)
+    // console.log("akbar new talent"+": "+p2)
+
+//ANTHONY:
+    var s1=anthony.work.call(amar)
+    var s2=anthony.work.call(akbar)
+    // console.log("anthony new talent"+": "+s1)
+    // console.log("anthony new talent"+": "+s2)
+    // console.log(q1,q2)
+    
+amar.talent.push(q1[0],q2[0])
+akbar.talent.push(p1[0],p2[0])
+anthony.talent.push(s1[0],s2[0])
+
+console.log(amar)
+console.log(akbar)
+console.log(anthony)
+</script>

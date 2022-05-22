@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //prototype inheritance
+    //create object method
+    // var product={
+    //     brand:"nike",
+    //     logo:"url",
+    //     seller:"flipkart",
+    // }
+
+    // var p1=Object.create(product)
+    // console.log(p1)
+
+// //constructor function
+//     function Product(type)
+//     {    
+//         this.type=type;
+//         this.brand="nike";
+//         this.logo="url";
+//         this.seller="flipkart"
+
+//     }
+    //by these protoype this thing accsessible to eacn and every product
+//     Product.prototype.discount=function(){
+//       console.log("50% discount")
+//   }
+
+//call,apply,bind----> temprory :everytime we have to call for every object again and again 
+//prototype------>permanant
+
+//   let p1=new Product("shoe");
+
+//   Product.prototype.changeType = function (type) {
+//   this.type = type;
+// };
+
+// p1.changeType("t-shirt");
+
+// p1=new Product("kurti");
+  //traditional method to add discount
+//   p1.discount=function()
+//   {
+//       console.log("50% discount");
+//   }
+
+
+
+// Product.prototype.Price=2000;
+//   let p2=new Product("sneaker");
+//   console.log(p1)
+//   console.log(p2)
+
+function myArray(){
+
+    Object.defineProperty(this,"length",{
+        value:0,
+        writable:true,
+         enumerable:false,
+    })
+    this.length=arguments.length
+    for(let i=0;i<arguments.length;i++)
+    {
+        this[i]=arguments[i]
+    }
+}
+
+let arr3= new myArray(1,2,3,4,5);
+console.log(Object.values(arr3) )
+
+// let arr = [1, 2, 3];
+// let arr2 = new Array(1, 2, 3);
+//  console.log(arr2);
+
+// function myArray() {
+//   this.length = arguments.length;
+// // console.log(arguments.length)
+//   for (let i = 0; i < arguments.length; i++)
+//    {
+//     this[i] = arguments[i];
+//   }
+// }
+
+//  let arr3 = new myArray(1, 2, 3, 4, 5);
+
+//   console.log(Object.values(arr3));
+
+
+
+
+
+</script>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+   #container{
+       display: grid;
+       grid-template-rows: repeat(20,auto);
+       grid-template-columns: repeat(4,auto);
+       gap:20px;
+       margin: auto;
+     
+   }
+   
+    </style>
+</head>
+<body>
+    <div id="container">
+         
+    </div>
+</body>
+</html>
+<script>
+    let button1;
+    var productArr=JSON.parse(localStorage.getItem("products"))
+    console.log(productArr)
+    display(productArr)
+    function display(productArr)
+    {
+        productArr.forEach(function(ele,index)
+        {
+            var card=document.createElement("div");
+            var name=document.createElement("h2")
+            name.innerText=ele.name;
+            var img=document.createElement("img");
+            img.src=ele.image;
+            var category=document.createElement("p");
+            category.innerText=ele.category
+            var price=document.createElement("p");
+            price.innerText=ele.price
+            var gender=document.createElement("p");
+            gender.innerText=ele.gender
+ 
+            button1=document.createElement("button")
+           
+            if(ele.sold=="false")
+             {
+                 button1.style.color="red"
+                 button1.innerText="sold"
+             }
+             else if(ele.sold=="true")
+             {
+                button1.style.color="green"
+                button1.innerText="Unsold"
+             }
+
+             button1.addEventListener("click",function(){
+                sellFunc(ele)
+             })
+         
+           
+
+
+             var delet=document.createElement("button")
+             delet.innerText="Delete"
+             delet.style.backgroundColor="red"
+             delet.addEventListener("click",function(){
+                 deleteItem(ele,index);
+             })
+            
+             
+            card.append(name,img,category,price,gender,delet,button1)
+            document.querySelector("#container").append(card);
+
+        })
+            
+      
+    }
+    
+    function deleteItem(ele,index){
+        productArr.splice(index,1);
+        localStorage.setItem("products",JSON.stringify(productArr))
+        window.location.reload();
+    }
+
+    function sellFunc(ele)
+    {     
+       
+        
+
+           if(ele.sold=="false")
+          {
+             button1.innerText="sold"
+            console.log("don")
+            ele.sold="true"
+            localStorage.setItem("products",JSON.stringify(productArr))
+            if(ele.sold=="true")
+            {
+                button1.style.color="green"
+            }
+            
+          }
+
+          else if(ele.sold=="true")
+          { 
+            button1.innerText="Unsold"
+            console.log("don2")
+            ele.sold="false"
+            localStorage.setItem("products",JSON.stringify(productArr))
+            if(ele.sold=="false")
+            {
+                button1.style.color="Red"
+            }
+           
+            
+          }
+        window.location.reload();
+       
+    }
+
+</script>
